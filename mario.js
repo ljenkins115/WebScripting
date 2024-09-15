@@ -1,23 +1,30 @@
 printPyramid(5);
 
 function printPyramid(height) {
-    let space = " ";
+    let space = ".";
     
     let brick = "#";
-        
-    let layer = "";
 
-    for (let i = 0; i <= height; i++) {
+    const element = document.getElementById("pyramid");
+
+    for (let i = 1; i <= height; i++) {
+        let rowStr = "";
+        
         for (let a = 0; a < height - i; a++) {
-            layer += space;
+            rowStr += space;
         }
     
         for (let b = 0; b < i; b++) {
-            layer += brick;
+            rowStr += brick;
         }
+
+        console.log(rowStr);
     
-        layer += "\n";
+        const para = document.createElement("p");
+        const node = document.createTextNode(rowStr);
+        para.appendChild(node);
+
+        element.appendChild(para);
     }
 
-    console.log(layer);
 }
