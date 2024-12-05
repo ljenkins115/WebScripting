@@ -1,11 +1,18 @@
-printPyramid(5);
+const button = document.getElementById("pyramidButton");
+button.addEventListener("click", determineHeightAndThenDrawPyramid);
 
-function printPyramid(height) {
+function determineHeightAndThenDrawPyramid() {
+    const height = document.getElementById("height").value;
+    drawPyramid(height);
+}
+
+function drawPyramid(height) {
     let space = ".";
     
     let brick = "#";
 
     const element = document.getElementById("pyramid");
+    element.innerHTML = "";
 
     for (let i = 1; i <= height; i++) {
         let rowStr = "";
